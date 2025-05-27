@@ -1,8 +1,21 @@
-# React + Vite
+# **1. Single Page App Básica**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 **Conceptos nuevos**:
 
-Currently, two official plugins are available:
+-  `<BrowserRouter>`, `<Routes>`, `<Route>` básico
+-  `<Link>` para navegación
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔨 **Proyecto**: Página de presentación personal con 3 secciones (Inicio, Proyectos, Contacto).
+
+```jsx
+<Routes>
+   <Route path="/" element={<Home />} />
+   <Route path="/projects" element={<Projects />} />
+   <Route path="/contact" element={<Contact />} />
+</Routes>
+```
+
+## Steps ✔️
+
+-  Configurate the routes ✔️
+-  Settings links for every page ✔️
