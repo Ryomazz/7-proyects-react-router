@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useNavigate, useLocation } from "react-router-dom";
+
+const products = [
+   {
+      name: "Producto 1",
+      id: 1,
+      description: "Tremendo el producto 1 boffff ufff",
+   },
+   {
+      name: "Producto 2",
+      id: 2,
+      description: "Tremendo el producto 2 boffff ufff",
+   },
+   {
+      name: "Producto 3",
+      id: 3,
+      description: "Tremendo el producto 3 boffff ufff",
+   },
+   {
+      name: "Producto 4",
+      id: 4,
+      description: "Tremendo el producto 4 boffff ufff",
+   },
+   {
+      name: "Producto 5",
+      id: 5,
+      description: "Tremendo el producto 5 boffff ufff",
+   },
+   {
+      name: "Producto 6",
+      id: 6,
+      description: "Tremendo el producto 6 boffff ufff",
+   },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
+   let navigate = useNavigate();
+   const { state } = useLocation();
+   return (
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+         <h1>Products</h1>
+         <p>Coming from {state.product.name}</p>
+         {products.map((product) => {
+            return (
+               <div key={product.id}>
+                  <h3>{product.name}</h3>
+                  <button
+                     onClick={() =>
+                        navigate(`/product/${product.id}`, { state: product })
+                     }
+                  >
+                     Got to {product.name}
+                  </button>
+               </div>
+            );
+         })}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+   );
 }
-
-export default App
+export default App;
